@@ -33,19 +33,19 @@ const generateProductsByNFOrder = (id, inf) => {
 
 const generateAllProductsOrdered = (rows) => {
   let refNF = null;
-  let todos = [];
+  let all = [];
 
   for (const r of rows) {
     const nfe = JSON.parse(r.json);
     const inf = nfe.nfeProc?.NFe?.infNFe;
     if (!refNF) refNF = inf;
 
-    todos.push(...extractProducts(inf));
+    all.push(...extractProducts(inf));
   }
 
-  todos.sort((a, b) => parseFloat(a.vProd || 0) - parseFloat(b.vProd || 0));
+  all.sort((a, b) => parseFloat(a.vProd || 0) - parseFloat(b.vProd || 0));
 
-  saveOutputFile(`produtos_todas_notas_ordenados.json`, todos);
+  saveOutputFile(`produtos_todas_notas_ordenados.json`, all);
 };
 
 module.exports = {
