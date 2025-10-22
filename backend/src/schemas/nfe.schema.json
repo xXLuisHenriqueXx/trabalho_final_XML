@@ -1,0 +1,190 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Nota Fiscal Eletrônica (NFe) Schema",
+  "type": "object",
+  "properties": {
+    "nfeProc": {
+      "type": "object",
+      "properties": {
+        "versao": { "type": "string" },
+        "NFe": {
+          "type": "object",
+          "properties": {
+            "infNFe": {
+              "type": "object",
+              "properties": {
+                "versao": { "type": "string" },
+                "Id": { "type": "string" },
+                "ide": {
+                  "type": "object",
+                  "properties": {
+                    "cUF": { "type": "string" },
+                    "cNF": { "type": "string" },
+                    "natOp": { "type": "string" },
+                    "mod": { "type": "string" },
+                    "serie": { "type": "string" },
+                    "nNF": { "type": "string" },
+                    "dhEmi": { "type": "string" },
+                    "tpNF": { "type": "string" },
+                    "idDest": { "type": "string" },
+                    "cMunFG": { "type": "string" },
+                    "tpImp": { "type": "string" },
+                    "tpEmis": { "type": "string" },
+                    "cDV": { "type": "string" },
+                    "tpAmb": { "type": "string" },
+                    "finNFe": { "type": "string" },
+                    "indFinal": { "type": "string" },
+                    "indPres": { "type": "string" },
+                    "procEmi": { "type": "string" },
+                    "verProc": { "type": "string" }
+                  },
+                  "required": ["cUF", "nNF", "dhEmi"]
+                },
+                "emit": {
+                  "type": "object",
+                  "properties": {
+                    "CNPJ": { "type": "string" },
+                    "xNome": { "type": "string" },
+                    "xFant": { "type": "string" },
+                    "enderEmit": {
+                      "type": "object",
+                      "properties": {
+                        "xLgr": { "type": "string" },
+                        "nro": { "type": "string" },
+                        "xBairro": { "type": "string" },
+                        "cMun": { "type": "string" },
+                        "xMun": { "type": "string" },
+                        "UF": { "type": "string" },
+                        "CEP": { "type": "string" },
+                        "cPais": { "type": "string" },
+                        "xPais": { "type": "string" },
+                        "fone": { "type": "string" }
+                      },
+                      "required": ["xLgr", "xMun", "UF"]
+                    },
+                    "IE": { "type": "string" },
+                    "CRT": { "type": "string" }
+                  },
+                  "required": ["CNPJ", "xNome"]
+                },
+                "dest": {
+                  "type": "object",
+                  "properties": {
+                    "CNPJ": { "type": "string" },
+                    "xNome": { "type": "string" },
+                    "enderDest": {
+                      "type": "object",
+                      "properties": {
+                        "xLgr": { "type": "string" },
+                        "nro": { "type": "string" },
+                        "xBairro": { "type": "string" },
+                        "cMun": { "type": "string" },
+                        "xMun": { "type": "string" },
+                        "UF": { "type": "string" },
+                        "CEP": { "type": "string" },
+                        "cPais": { "type": "string" },
+                        "xPais": { "type": "string" },
+                        "fone": { "type": "string" }
+                      }
+                    },
+                    "indIEDest": { "type": "string" },
+                    "IE": { "type": "string" },
+                    "email": { "type": "string" }
+                  }
+                },
+                "det": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "nItem": { "type": "string" },
+                      "prod": {
+                        "type": "object",
+                        "properties": {
+                          "cProd": { "type": "string" },
+                          "cEAN": { "type": "string" },
+                          "xProd": { "type": "string" },
+                          "NCM": { "type": "string" },
+                          "CFOP": { "type": "string" },
+                          "uCom": { "type": "string" },
+                          "qCom": { "type": "string" },
+                          "vUnCom": { "type": "string" },
+                          "vProd": { "type": "string" }
+                        },
+                        "required": ["cProd", "xProd", "vProd"]
+                      },
+                      "imposto": { "type": "object" }
+                    },
+                    "required": ["prod"]
+                  },
+                  "minItems": 1
+                },
+                "total": {
+                  "type": "object",
+                  "properties": {
+                    "ICMSTot": {
+                      "type": "object",
+                      "properties": {
+                        "vProd": { "type": "string" },
+                        "vNF": { "type": "string" }
+                      },
+                      "required": ["vNF"]
+                    }
+                  }
+                },
+                "transp": {
+                  "type": "object",
+                  "properties": {
+                    "modFrete": { "type": "string" },
+                    "transporta": {
+                      "type": "object",
+                      "properties": {
+                        "CNPJ": { "type": "string" },
+                        "xNome": { "type": "string" },
+                        "UF": { "type": "string" }
+                      }
+                    }
+                  }
+                },
+                "pag": {
+                  "type": "object",
+                  "properties": {
+                    "detPag": {
+                      "type": "object",
+                      "properties": {
+                        "indPag": { "type": "string" },
+                        "tPag": { "type": "string" },
+                        "vPag": { "type": "string" }
+                      }
+                    }
+                  }
+                },
+                "infAdic": {
+                  "type": "object",
+                  "properties": {
+                    "infCpl": { "type": "string" }
+                  }
+                },
+                "infRespTec": {
+                  "type": "object",
+                  "properties": {
+                    "CNPJ": { "type": "string" },
+                    "xContato": { "type": "string" },
+                    "email": { "type": "string" },
+                    "fone": { "type": "string" }
+                  }
+                }
+              },
+              "required": ["ide", "emit", "dest", "det", "total"]
+            },
+            "Signature": { "type": "object" }
+          },
+          "required": ["infNFe"]
+        },
+        "protNFe": { "type": "object" }
+      },
+      "required": ["NFe"]
+    }
+  },
+  "required": ["nfeProc"]
+}
